@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import RandomResults from "./RandomResults";
 
 const RandomShows = () => {
   const [error, setError] = useState(null);
