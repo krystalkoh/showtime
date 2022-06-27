@@ -40,6 +40,7 @@ const ShowInfoModal = (props) => {
           <img src={props.image}></img>
           <p>{props.time}</p>
           <p>{props.days}</p>
+          <a href={props.officialSite}>Link to Official Site</a>
           {/* //how to set link?? */}
           <a href={data.url}></a>
 
@@ -68,6 +69,7 @@ const ShowInfoModal = (props) => {
             days={data.schedule.days.map((item) => {
               return <li>{item}</li>;
             })}
+            officialSite={data.officialSite}
             okayClicked={props.okayClicked}
           />
         ),
