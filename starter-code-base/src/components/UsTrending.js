@@ -49,17 +49,14 @@ const UsTrending = () => {
         setShow(true);
       };
 
-      const finalUsTrending = usTrendingArr.map((item, index) => {
+      const finalUsTrending = usTrendingArr.map((item) => {
         return (
-          <div
-            className="indivShow"
-            // onClick={() => {
-            // const event = event.target.key;
+          <div className="indivShow">
+            {/* onClick={() => { */}
+            {/* // const event = event.target.key;
             // handleClick(event.target);
             // handleShowInfo(showId);
-            // }}
-          >
-            {" "}
+            // }} */}{" "}
             {/* <button onClick={handleClick}> */}
             <button>
               <img

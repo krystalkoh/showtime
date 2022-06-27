@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getCurrentDate } from "./currentDate";
+import ShowInfoModal from "./ShowInfoModal";
 
 const UkTrending = () => {
+  const currentDate = getCurrentDate();
   const [error, setError] = useState(null);
   const [movieData, setMovieData] = useState("");
-
-  const currentDate = getCurrentDate();
+  const [showId, setShowId] = useState("");
+  const [show, setShow] = useState(false);
 
   const fetchPost = async () => {
     try {
@@ -34,11 +36,36 @@ const UkTrending = () => {
         const shuffled = [...arr].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, num);
       }
+
       const ukTrendingArr = getMultipleRandom(filteredArr, 8);
+
+      const handleClick = (index) => {
+        console.log(index);
+        setShowId(index);
+        setShow(true);
+      };
+
       // console.log(ukTrendingArr);
 
       const finalUkTrending = ukTrendingArr.map((item) => {
-        return <img src={item.show.image.medium} key={item.id}></img>;
+        return (
+          <div className="indivShow">
+            <button>
+              <img
+                src={item.show.image.medium}
+                alt="image not available"
+                key={item.show.id}
+                index={item.show.id}
+                onClick={() => {
+                  handleClick(item.show.id);
+                }}
+                name={item.show.name}
+              ></img>
+            </button>
+            <h6> {item.show.name}</h6>
+            {/* {console.log(item.show.id)} */}
+          </div>
+        );
       });
 
       // console.log(finalUkTrending);
@@ -54,9 +81,14 @@ const UkTrending = () => {
   }, []);
 
   // console.log(movieData);
-
+  const handleModalOkay = () => {
+    setShow(false);
+  };
   return (
     <>
+      {showId && show && (
+        <ShowInfoModal okayClicked={handleModalOkay} showId={showId} />
+      )}
       <div>{movieData}</div>
     </>
   );
