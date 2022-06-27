@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { getCurrentDate } from "./currentDate";
-import Heart from "./Heart";
+import ShowInfo from "./ShowInfo";
 import styles from "../css/usTrending.module.css";
+import ShowInfoModal from "./ShowInfoModal";
 
 const UsTrending = () => {
+  const currentDate = getCurrentDate();
   const [error, setError] = useState(null);
   const [movieData, setMovieData] = useState("");
-
-  const currentDate = getCurrentDate();
+  const [showId, setShowId] = useState("");
+  const [show, setShow] = useState(false);
 
   const fetchPost = async () => {
     try {
@@ -22,10 +24,6 @@ const UsTrending = () => {
       const usTrendingImages = await response.json();
 
       //this is 61 items
-      // for (let i = 0; i <= usTrendingImages.length; i++) {
-      //49 items
-      // filteredArr[i].show.image.medium
-      // }
       let filteredArr = usTrendingImages.filter(
         (images) => images.show.image !== null
       );
@@ -37,19 +35,59 @@ const UsTrending = () => {
         return shuffled.slice(0, num);
       }
       const usTrendingArr = getMultipleRandom(filteredArr, 8);
-      console.log(usTrendingArr);
+      // console.log(usTrendingArr);
 
-      const finalUsTrending = usTrendingArr.map((item) => {
+      // const handleFav = (pic) => {
+      //   setFav((prevState) => [...prevState, pic]);
+      // };
+      // const handleShowInfo = (id) => {
+      //   return <ShowInfo key={showId}></ShowInfo>;
+      // };
+      const handleClick = (index) => {
+        console.log(index);
+        setShowId(index);
+        setShow(true);
+      };
+
+      const finalUsTrending = usTrendingArr.map((item, index) => {
         return (
-          <div>
+          <div
+            className="indivShow"
+            // onClick={() => {
+            // const event = event.target.key;
+            // handleClick(event.target);
+            // handleShowInfo(showId);
+            // }}
+          >
             {" "}
-            <img src={item.show.image.medium} key={Math.random()}></img>
-            <Heart></Heart>
+            {/* <button onClick={handleClick}> */}
+            <button>
+              <img
+                src={item.show.image.medium}
+                alt="image not available"
+                key={item.show.id}
+                index={item.show.id}
+                onClick={() => {
+                  handleClick(item.show.id);
+                }}
+                name={item.show.name}
+              ></img>
+            </button>
+            <h6> {item.show.name}</h6>
+            {/* {console.log(item.show.id)} */}
           </div>
         );
       });
 
-      console.log(finalUsTrending);
+      // const handleClick = (index) => {
+      //   const idArr = finalUsTrending.filter((d, i) => i === index);
+      //   setShowId(idArr);
+      // };
+
+      // console.log(showId);
+      // passImage();
+
+      // console.log(finalUsTrending);
       setMovieData(finalUsTrending);
     } catch (error) {
       setError(error.message);
@@ -57,15 +95,20 @@ const UsTrending = () => {
   };
 
   useEffect(() => {
-    console.log(`component is mounted or rendered`);
+    // console.log(`component is mounted or rendered`);
     fetchPost();
   }, []);
 
   // console.log(movieData);
-
+  const handleModalOkay = () => {
+    setShow(false);
+  };
   return (
     <>
-      <div>{movieData}</div>
+      {showId && show && (
+        <ShowInfoModal okayClicked={handleModalOkay} showId={showId} />
+      )}
+      ;<div>{movieData}</div>
     </>
   );
 };

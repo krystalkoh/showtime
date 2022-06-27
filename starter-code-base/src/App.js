@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Homepage from "./components/Homepage";
 import RandomShows from "./components/RandomShows";
 import UsTrending from "./components/UsTrending";
@@ -7,6 +7,14 @@ import UkTrending from "./components/UkTrending";
 // import ChinaTrending from "./components/ChinaTrending";
 
 function App() {
+  // const [showId, setShowId] = useState("");
+
+  // const removeFromCart = (index) => {
+  //   const cartArr = cart.filter((d, i) => i === index);
+  //   setShowId(cartArr);
+  //   console.log(showId);
+  // };
+
   return (
     <div>
       <SearchBar></SearchBar>

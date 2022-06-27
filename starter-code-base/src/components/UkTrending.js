@@ -38,7 +38,7 @@ const UkTrending = () => {
       // console.log(ukTrendingArr);
 
       const finalUkTrending = ukTrendingArr.map((item) => {
-        return <img src={item.show.image.medium} key={Math.random()}></img>;
+        return <img src={item.show.image.medium} key={item.id}></img>;
       });
 
       // console.log(finalUkTrending);
