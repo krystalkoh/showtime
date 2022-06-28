@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SearchResults from "./SearchResults";
+import UkTrending from "./UkTrending";
+import UsTrending from "./UsTrending";
 
 const SearchBar = (props) => {
   const [error, setError] = useState(null);
@@ -33,13 +35,14 @@ const SearchBar = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearch(input);
+    fetchPost(movieSrc);
     // setShowRandom(false);
   };
 
-  useEffect(() => {
-    // console.log(`component is mounted or rendered`);
-    fetchPost(movieSrc);
-  }, [search]);
+  // useEffect(() => {
+  //   // console.log(`component is mounted or rendered`);
+  //   fetchPost(movieSrc);
+  // }, [search]);
 
   return (
     <>
@@ -57,13 +60,21 @@ const SearchBar = (props) => {
           onClick={handleSubmit}
           onSubmit={props.handleClick}
         >
-          {" "}
           Search
         </button>
       </form>
 
-      {/* //need to map all results  */}
-      {data && <SearchResults data={data}></SearchResults>}
+      {data !== "" ? (
+        <SearchResults data={data} />
+      ) : (
+        <>
+          <h2> Currently showing in the US </h2>
+          <UsTrending />
+          <br></br>
+          <h2> Currently showing in the UK </h2>
+          <UkTrending />
+        </>
+      )}
     </>
   );
 };

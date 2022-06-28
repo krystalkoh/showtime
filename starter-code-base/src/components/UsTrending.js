@@ -3,6 +3,7 @@ import { getCurrentDate } from "./currentDate";
 
 import styles from "../css/usTrending.module.css";
 import ShowInfoModal from "./ShowInfoModal";
+import SearchBar from "./SearchBar";
 
 const UsTrending = (props) => {
   const currentDate = getCurrentDate();

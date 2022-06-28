@@ -29,21 +29,7 @@ function App() {
 
   return (
     <div>
-      <SearchBar handleClick={handleSearchClick}></SearchBar>
-
-      {hasSearched ? (
-        <SearchResults />
-      ) : (
-        <>
-          <h2> Currently showing in the US </h2>
-          <UsTrending></UsTrending>
-          <br></br>
-          <h2> Currently showing in the UK </h2>
-          <UkTrending></UkTrending>
-        </>
-      )}
-
-      <br />
+      <SearchBar></SearchBar>
       {/* <RandomShows></RandomShows> */}
     </div>
   );

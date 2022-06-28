@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+import Heart from "./Heart";
 import styles from "./ShowInfoModal.module.css";
 // import Button from "./Button";
 
@@ -27,14 +28,16 @@ const ShowInfoModal = (props) => {
   }, [showId]);
 
   const Overlay = (props) => {
-    console.log(props.image);
+    // console.log(props.image);
     return (
       <div className={styles.backdrop} onClick={props.okayClicked}>
         <div className={`${styles.board} ${styles.modal}`}>
           <header className={styles.header}>
             <h2>{props.title}</h2>
           </header>
+
           <div className={styles.content}></div>
+          {/* <Heart onClick={data}></Heart> */}
           <h4>{props.name}</h4>
           <p>{props.summary}</p>
           <img src={props.image}></img>
@@ -43,12 +46,12 @@ const ShowInfoModal = (props) => {
           <a href={props.officialSite}>Link to Official Site</a>
           {/* //how to set link?? */}
           <a href={data.url}></a>
-
           <span> premiered on {data.premiered}</span>
           <a href={data.officialSite}>{/* : {data.schedule.days}{" "} */}</a>
           {/* <h4>{data.schedule.days}</h4> */}
           {/* {data.schedule.time} */}
         </div>
+
         <footer className={styles.actions}>
           <button onClick={props.okayClicked}>Okay</button>
         </footer>

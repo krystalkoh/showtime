@@ -8,7 +8,7 @@ const favsReducer = (state, action) => {
   }
 };
 
-const Favourites = () => {
+const Favourites = (props) => {
   const favsArr = [];
   const [favs, dispatchFavs] = useReducer(favsReducer, favsArr);
   const [checked, dispatchChecked] = useReducer(checkedReducer, false);
