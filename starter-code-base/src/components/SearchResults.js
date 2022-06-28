@@ -1,38 +1,27 @@
 import React from "react";
 
-const Results = (props, index) => {
+const Results = (props) => {
   const results = props.data.map((item) => {
     return (
-      <div>
-        <ul>
-          {/* <h4>results show here:</h4> */}
-          {/* <h6>{item.show.id}</h6>
+      <div key={item.id}>
+        {/* <h4>results show here:</h4> */}
+        {/* <h6>{item.show.id}</h6>
         <h6>{item.show.url}</h6> */}
-          <li key={index}>
-            <h6>{item.show.name}</h6>
-          </li>
-          {/* //genre is an array  */}
-          {/* <h6>{item.show.genre}</h6> */}
-          <li key={index}>
-            <h6>{item.show.officialSite}</h6>{" "}
-          </li>
-          <li key={index}>
-            <h6>
-              {item.show.rating.average == null
-                ? "Rating not available"
-                : item.show.rating.average}
-            </h6>{" "}
-          </li>
-          <li key={index}>
-            <h6>{item.show.language}</h6>{" "}
-          </li>
-          <li key={index}>
-            <p>{item.show.summary}</p>{" "}
-          </li>
-          <li key={index}>
-            <img src={item.show.image.medium} alt="" key={item.show.id} />{" "}
-          </li>
-        </ul>
+        <h6>{item.show.name}</h6>
+        {/* //genre is an array  */}
+        {/* <h6>{item.show.genre}</h6> */}
+        <h6>{item.show.officialSite}</h6>{" "}
+        <h6>
+          {item.show.rating.average == null
+            ? "Rating not available"
+            : item.show.rating.average}
+        </h6>{" "}
+        <h6>{item.show.language}</h6> <p>{item.show.summary}</p>{" "}
+        {item.show.rating.average == null ? (
+          "Image not available"
+        ) : (
+          <img src={item.show.image.medium} alt="" key={item.show.id} />
+        )}
       </div>
     );
   });

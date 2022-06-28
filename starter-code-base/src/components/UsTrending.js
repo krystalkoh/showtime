@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getCurrentDate } from "./currentDate";
-import ShowInfo from "./ShowInfo";
+
 import styles from "../css/usTrending.module.css";
 import ShowInfoModal from "./ShowInfoModal";
 
-const UsTrending = () => {
+const UsTrending = (props) => {
   const currentDate = getCurrentDate();
   const [error, setError] = useState(null);
   const [movieData, setMovieData] = useState("");

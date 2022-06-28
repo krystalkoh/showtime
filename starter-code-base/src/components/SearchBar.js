@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import Results from "./SearchResults";
+import React, { useState, useEffect } from "react";
+import SearchResults from "./SearchResults";
 
 const SearchBar = (props) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState("");
   const [input, setInput] = useState("");
+  const [search, setSearch] = useState("");
   // const [input, setInput] = useState(null);
   // const [showRandom, setShowRandom] = useState(true);
 
@@ -18,8 +19,7 @@ const SearchBar = (props) => {
       }
 
       const searchData = await response.json();
-      console.log(searchData);
-
+      // console.log(searchData);
       setData(searchData);
     } catch (error) {
       setError(error.message);
@@ -32,13 +32,18 @@ const SearchBar = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setSearch(input);
     // setShowRandom(false);
-    fetchPost(movieSrc);
   };
+
+  useEffect(() => {
+    // console.log(`component is mounted or rendered`);
+    fetchPost(movieSrc);
+  }, [search]);
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form>
         <input
           type="text"
           placeholder="Search for a show"
@@ -47,13 +52,22 @@ const SearchBar = (props) => {
         {/* <Button onSubmit={handleSubmit}></Button>
       <input value={input} type="text" placeholder="Enter a Movie Title..." />
       <button type="submit" value="Submit"> */}
-        <button> Search</button>
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          onSubmit={props.handleClick}
+        >
+          {" "}
+          Search
+        </button>
       </form>
 
       {/* //need to map all results  */}
-      {data && <Results data={data}></Results>}
+      {data && <SearchResults data={data}></SearchResults>}
     </>
   );
 };
 
 export default SearchBar;
+
+//useeffect is happening
