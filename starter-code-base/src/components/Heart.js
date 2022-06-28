@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./Heart.module.css";
 
 const Heart = () => {
-  const favsArr = [];
+  // const favsArr = [];
   const [checked, setChecked] = useState(false);
   if (checked == true) {
     console.log("this is checked and true");

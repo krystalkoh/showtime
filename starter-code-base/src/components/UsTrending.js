@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getCurrentDate } from "./currentDate";
-
+import Heart from "./Heart";
 import styles from "../css/usTrending.module.css";
 import ShowInfoModal from "./ShowInfoModal";
 import SearchBar from "./SearchBar";
@@ -51,15 +51,18 @@ const UsTrending = (props) => {
       };
 
       const finalUsTrending = usTrendingArr.map((item) => {
+        console.log(item);
         return (
           <div className="indivShow">
             {/* onClick={() => { */}
             {/* // const event = event.target.key;
             // handleClick(event.target);
             // handleShowInfo(showId);
-            // }} */}{" "}
+            // }} */}
             {/* <button onClick={handleClick}> */}
             <button>
+              <Heart data={item}></Heart>
+              {/* //usecontext */}
               <img
                 src={item.show.image.medium}
                 alt="image not available"

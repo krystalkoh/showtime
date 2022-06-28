@@ -37,7 +37,7 @@ const ShowInfoModal = (props) => {
           </header>
 
           <div className={styles.content}></div>
-          {/* <Heart onClick={data}></Heart> */}
+
           <h4>{props.name}</h4>
           <p>{props.summary}</p>
           <img src={props.image}></img>
@@ -48,8 +48,6 @@ const ShowInfoModal = (props) => {
           <a href={data.url}></a>
           <span> premiered on {data.premiered}</span>
           <a href={data.officialSite}>{/* : {data.schedule.days}{" "} */}</a>
-          {/* <h4>{data.schedule.days}</h4> */}
-          {/* {data.schedule.time} */}
         </div>
 
         <footer className={styles.actions}>

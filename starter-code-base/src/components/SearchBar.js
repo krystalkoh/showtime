@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import SearchResults from "./SearchResults";
 import UkTrending from "./UkTrending";
 import UsTrending from "./UsTrending";
+import Homepage from "./Homepage";
 
 const SearchBar = (props) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState("");
   const [input, setInput] = useState("");
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(false);
   // const [input, setInput] = useState(null);
   // const [showRandom, setShowRandom] = useState(true);
 
@@ -34,9 +35,13 @@ const SearchBar = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setSearch(input);
+    // setSearch(input);
     fetchPost(movieSrc);
-    // setShowRandom(false);
+    setSearch(true);
+  };
+
+  const handleClick = () => {
+    setSearch(false);
   };
 
   // useEffect(() => {
@@ -58,21 +63,17 @@ const SearchBar = (props) => {
         <button
           type="submit"
           onClick={handleSubmit}
-          onSubmit={props.handleClick}
+          // onSubmit={props.handleClick}
         >
           Search
         </button>
       </form>
 
-      {data !== "" ? (
-        <SearchResults data={data} />
+      {search && data ? (
+        <SearchResults data={data} onClick={handleClick} />
       ) : (
         <>
-          <h2> Currently showing in the US </h2>
-          <UsTrending />
-          <br></br>
-          <h2> Currently showing in the UK </h2>
-          <UkTrending />
+          <Homepage />
         </>
       )}
     </>
