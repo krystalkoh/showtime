@@ -105,7 +105,7 @@ const UsTrending = () => {
       {showId && show && (
         <ShowInfoModal okayClicked={handleModalOkay} showId={showId} />
       )}
-      ;<div>{movieData}</div>
+      <div>{movieData}</div>
     </>
   );
 };
