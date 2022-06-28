@@ -28,9 +28,9 @@ const Results = (props) => {
 
   return (
     <div>
-      {/* <button type="submit" value="Submit" onClick={props.onClick}>
+      <button type="submit" value="Submit" onClick={props.onClick}>
         Back to Search
-      </button> */}
+      </button>
       {results}
     </div>
   );
