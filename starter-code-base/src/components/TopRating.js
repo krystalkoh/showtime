@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getCurrentDate } from "./currentDate";
+import Heart from "./HeartButton";
+import styles from "../css/usTrending.module.css";
 import ShowInfoModal from "./ShowInfoModal";
+import SearchBar from "./SearchBar";
 import HeartButton from "./HeartButton";
+// import Carousel from "react-bootstrap/Carousel";
 
-const UkTrending = () => {
-  const currentDate = getCurrentDate();
+const TopRating = (props) => {
   const [error, setError] = useState(null);
   const [movieData, setMovieData] = useState("");
   const [showId, setShowId] = useState("");
@@ -12,73 +15,74 @@ const UkTrending = () => {
 
   const fetchPost = async () => {
     try {
-      const response = await fetch(
-        `https://api.tvmaze.com/schedule?country=GB&date=${currentDate}`
-      );
+      const response = await fetch(`https://api.tvmaze.com/shows?page=1
+      `);
       //   if (response.status !== 200) {
       //     throw new Error("something went wrong.");
       //   }
 
       //should try and make it random
-      const ukTrendingImages = await response.json();
+      const trendingImages = await response.json();
 
+      console.log(trendingImages);
       //this is 61 items
-      // for (let i = 0; i <= usTrendingImages.length; i++) {
-      //49 items
-      // filteredArr[i].show.image.medium
-      // }
-      let filteredArr = ukTrendingImages.filter(
-        (images) => images.show.image !== null
+      const filteredArr = trendingImages.filter(
+        (images) => images.image.medium !== null
       );
       // console.log(filteredArr);
 
+      const ratingFilteredArr = filteredArr.filter(
+        (rating) => rating.rating.average !== null && rating.rating.average >= 8
+      );
+
+      // console.log(ratingFilteredArr);
       //this is to get random shows from the filteredArr
       function getMultipleRandom(arr, num) {
         const shuffled = [...arr].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, num);
       }
-
-      const ukTrendingArr = getMultipleRandom(filteredArr, 8);
+      const usTrendingArr = getMultipleRandom(ratingFilteredArr, 1);
+      // console.log(usTrendingArr);
 
       const handleClick = (index) => {
-        // console.log(index);
+        console.log(index);
         setShowId(index);
         setShow(true);
       };
 
-      // console.log(ukTrendingArr);
+      const finalUsTrending = usTrendingArr.map((item) => {
+        // console.log(item);
 
-      const finalUkTrending = ukTrendingArr.map((item) => {
         return (
           <div className="indivShow">
             <button>
               {item && <HeartButton data={item} />}
+              {/* //usecontext */}
               <img
-                src={item.show.image.medium}
+                src={item.image.medium}
                 alt="image not available"
-                key={item.show.id}
-                index={item.show.id}
+                key={item.id}
+                index={item.id}
                 onClick={() => {
-                  handleClick(item.show.id);
+                  handleClick(item.id);
                 }}
-                name={item.show.name}
+                name={item.name}
               ></img>
             </button>
-            <h6> {item.show.name}</h6>
+            <h6>Rating: {item.rating.average}</h6>
             {/* {console.log(item.show.id)} */}
           </div>
         );
       });
 
-      // console.log(finalUkTrending);
-      setMovieData(finalUkTrending);
+      setMovieData(finalUsTrending);
     } catch (error) {
       setError(error.message);
     }
   };
 
   useEffect(() => {
-    console.log(`component is mounted or rendered`);
+    // console.log(`component is mounted or rendered`);
     fetchPost();
   }, []);
 
@@ -95,4 +99,5 @@ const UkTrending = () => {
     </>
   );
 };
-export default UkTrending;
+
+export default TopRating;

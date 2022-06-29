@@ -7,7 +7,6 @@ import UkTrending from "./components/UkTrending";
 import SearchResults from "./components/SearchResults";
 import ReactContext from "./context/react-context";
 import Favourites from "./components/Favourites";
-import styles from "./css/styles.css";
 
 function App() {
   // const [hasSearched, setHasSearched] = useState(false);
