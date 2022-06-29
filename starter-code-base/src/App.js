@@ -21,11 +21,22 @@ function App() {
     <div>
       <ReactContext.Provider value={{ favourites, setFavourites }}>
         <div className="container">
-          {favourites && <Favourites />}
           <SearchBar />
+          {favourites && (
+            <>
+              <h1>favourites</h1>
+              <Favourites />
+            </>
+          )}
         </div>
       </ReactContext.Provider>
 
+      {/* <ReactContext.Provider value={{ favourites, setFavourites }}>
+        <Routes>
+          <Route path="/favourites" element={<Favourites />}></Route>
+          <Route path="/search" element={<SearchBar />}></Route>
+        </Routes>
+      </ReactContext.Provider> */}
       {/* <RandomShows></RandomShows> */}
     </div>
   );

@@ -19,6 +19,7 @@ const HeartButton = (props) => {
         return [...prevState, props.data];
       });
       setActive(!active);
+      // localStorage.setItem("user", JSON.stringify(reactCtx.favourites));
     } else {
       const favsArr = reactCtx.favourites.filter(
         (data, i) => data.show.id !== props.data.show.id
@@ -26,8 +27,6 @@ const HeartButton = (props) => {
       setActive(!active);
       reactCtx.setFavourites(favsArr);
     }
-
-    // }
   };
 
   // if (active) {
