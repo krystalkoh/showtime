@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import Heart from "./Heart";
+import Heart from "./HeartButton";
 import styles from "./ShowInfoModal.module.css";
 // import Button from "./Button";
 

@@ -12,16 +12,17 @@ import styles from "./css/styles.css";
 function App() {
   // const [hasSearched, setHasSearched] = useState(false);
 
-  const [favourites, setFavourites] = useState("");
+  const [favourites, setFavourites] = useState([]);
   // const [newFavourites, setNewFavorites]
+
+  // call some function to add to favourites
 
   return (
     <div>
       <ReactContext.Provider value={{ favourites, setFavourites }}>
         <div className="container">
+          {favourites.length && <Favourites />}
           <SearchBar />
-          <h2>Favourites:</h2>
-          <Favourites favourites={favourites} />
         </div>
       </ReactContext.Provider>
 

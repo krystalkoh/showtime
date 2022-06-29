@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import UsTrending from "./UsTrending";
 import UkTrending from "./UkTrending";
+import ReactContext from "../context/react-context";
 
 const Homepage = () => {
   return (

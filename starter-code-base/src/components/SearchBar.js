@@ -5,6 +5,7 @@ import UsTrending from "./UsTrending";
 import Homepage from "./Homepage";
 
 const SearchBar = (props) => {
+  console.log("Searchbar re-renders");
   const [error, setError] = useState(null);
   const [data, setData] = useState("");
   const [input, setInput] = useState("");
@@ -36,7 +37,7 @@ const SearchBar = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // setSearch(input);
-    fetchPost(movieSrc);
+    // fetchPost(movieSrc);
     setSearch(true);
   };
 
@@ -44,10 +45,10 @@ const SearchBar = (props) => {
     setSearch(false);
   };
 
-  // useEffect(() => {
-  //   // console.log(`component is mounted or rendered`);
-  //   fetchPost(movieSrc);
-  // }, [search]);
+  useEffect(() => {
+    // console.log(`component is mounted or rendered`);
+    fetchPost(movieSrc);
+  }, [search]);
 
   return (
     <>

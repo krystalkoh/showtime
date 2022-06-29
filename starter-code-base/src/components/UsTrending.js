@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getCurrentDate } from "./currentDate";
-import Heart from "./Heart";
+import Heart from "./HeartButton";
 import styles from "../css/usTrending.module.css";
 import ShowInfoModal from "./ShowInfoModal";
 import SearchBar from "./SearchBar";
+import HeartButton from "./HeartButton";
 
 const UsTrending = (props) => {
   const currentDate = getCurrentDate();
@@ -67,7 +68,7 @@ const UsTrending = (props) => {
             // }} */}
             {/* <button onClick={handleClick}> */}
             <button>
-              <Heart data={item}> </Heart>
+              {item && <HeartButton data={item} />}
               {/* //usecontext */}
               <img
                 src={item.show.image.medium}
