@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getCurrentDate } from "./currentDate";
 import ShowInfoModal from "./ShowInfoModal";
+import HeartButton from "./HeartButton";
 
 const UkTrending = () => {
   const currentDate = getCurrentDate();
@@ -51,6 +52,7 @@ const UkTrending = () => {
         return (
           <div className="indivShow">
             <button>
+              {item && <HeartButton data={item} />}
               <img
                 src={item.show.image.medium}
                 alt="image not available"

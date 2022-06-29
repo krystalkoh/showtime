@@ -9,6 +9,8 @@ const Favourites = (props) => {
   const favData = favouritesCtx.favourites.map((item) => {
     return <img src={item.show.image.medium}></img>;
   });
+  // localStorage.setItem("user", JSON.stringify(props.favourites));
+
   return (
     <>
       <div>

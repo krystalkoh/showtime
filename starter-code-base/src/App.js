@@ -21,7 +21,7 @@ function App() {
     <div>
       <ReactContext.Provider value={{ favourites, setFavourites }}>
         <div className="container">
-          {favourites.length && <Favourites />}
+          {favourites && <Favourites />}
           <SearchBar />
         </div>
       </ReactContext.Provider>

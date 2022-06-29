@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import Heart from "./HeartButton";
 import styles from "./ShowInfoModal.module.css";
-// import Button from "./Button";
+import HeartButton from "./HeartButton";
 
 const ShowInfoModal = (props) => {
   const [data, setShowData] = useState("");
@@ -61,19 +61,22 @@ const ShowInfoModal = (props) => {
       {/* //MUST RMBR TO DO CONDITIONAL RENDERING AS THE DATA MUST FINISH LOADING FIRST  */}
       {ReactDOM.createPortal(
         data && (
-          <Overlay
-            name={data.name}
-            summary={data.summary}
-            message="message"
-            image={data.image.medium}
-            time={data.schedule.time}
-            days={data.schedule.days.map((item) => {
-              return <li>{item}</li>;
-            })}
-            officialSite={data.officialSite}
-            okayClicked={props.okayClicked}
-          />
+          <>
+            <Overlay
+              name={data.name}
+              summary={data.summary}
+              message="message"
+              image={data.image.medium}
+              time={data.schedule.time}
+              days={data.schedule.days.map((item) => {
+                return <li>{item}</li>;
+              })}
+              officialSite={data.officialSite}
+              okayClicked={props.okayClicked}
+            />
+          </>
         ),
+        //  {item && <HeartButton data={item} />}
         document.querySelector("#modal-root")
       )}
     </>
