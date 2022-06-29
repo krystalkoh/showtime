@@ -6,12 +6,13 @@ const Favourites = (props) => {
   // console.log(props.favourites);
   // if don't do the && thing , it'll create the Favourites immediately, therefore need to use && to populate it first
 
+  const favData = favouritesCtx.favourites.map((item) => {
+    return <img src={item.show.image.medium}></img>;
+  });
   return (
     <>
       <div>
-        {favouritesCtx.favourites.length ? (
-          <h1>{JSON.stringify(favouritesCtx.favourites)}</h1>
-        ) : null}
+        {favouritesCtx.favourites.length ? favData : null}
         {props.favourites && (
           <img src={props.favourites.show.image.medium}></img>
         )}

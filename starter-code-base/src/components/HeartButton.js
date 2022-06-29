@@ -9,6 +9,7 @@ const HeartButton = (props) => {
 
   const reactCtx = useContext(ReactContext);
 
+  //DO NOT USE && IN NON-JSX
   const handleButtonClick = () => {
     console.log("data", props.data);
     setActive(!active);
