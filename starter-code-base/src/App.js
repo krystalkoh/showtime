@@ -5,31 +5,26 @@ import UsTrending from "./components/UsTrending";
 import SearchBar from "./components/SearchBar";
 import UkTrending from "./components/UkTrending";
 import SearchResults from "./components/SearchResults";
-
-// import ChinaTrending from "./components/ChinaTrending";
+import ReactContext from "./context/react-context";
+import Favourites from "./components/Favourites";
+import styles from "./css/styles.css";
 
 function App() {
-  const [hasSearched, setHasSearched] = useState(false);
-  // const [showId, setShowId] = useState("");
+  // const [hasSearched, setHasSearched] = useState(false);
 
-  const handleSearchClick = () => {
-    if (!hasSearched) {
-      setHasSearched(true);
-      console.log("true");
-    } else if (hasSearched) {
-      setHasSearched(false);
-      console.log("false");
-    }
-  };
-  // const removeFromCart = (index) => {
-  //   const cartArr = cart.filter((d, i) => i === index);
-  //   setShowId(cartArr);
-  //   console.log(showId);
-  // };
+  const [favourites, setFavourites] = useState("");
+  // const [newFavourites, setNewFavorites]
 
   return (
     <div>
-      <SearchBar></SearchBar>
+      <ReactContext.Provider value={{ favourites, setFavourites }}>
+        <div className="container">
+          <SearchBar />
+          <h2>Favourites:</h2>
+          <Favourites favourites={favourites} />
+        </div>
+      </ReactContext.Provider>
+
       {/* <RandomShows></RandomShows> */}
     </div>
   );

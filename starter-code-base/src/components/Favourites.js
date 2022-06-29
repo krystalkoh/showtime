@@ -1,40 +1,40 @@
-// import React, { useReducer } from "react";
-// import Heart from "./Heart";
+import React, { useContext } from "react";
+import ReactContext from "../context/react-context";
 
-// const favsReducer = (state, action) => {
-//   switch (action.type) {
-//     case "ADDTOFAVS":
-//       return [action.payload, ...state];
-//   }
-// };
+const Favourites = (props) => {
+  // console.log(props.favourites);
+  // if don't do the && thing , it'll create the Favourites immediately, therefore need to use && to populate it first
 
-// const Favourites = (props) => {
-//   const favsArr = [];
-//   const [favs, dispatchFavs] = useReducer(favsReducer, favsArr);
-//   const [checked, dispatchChecked] = useReducer(checkedReducer, false);
+  // const favsArr=
+  // function addNewShow(titleArg, imageArg) {
+  //   // Get array from local storage, defaulting to empty array if it's not yet set
+  //   const showList = JSON.parse(localStorage.getItem("showList") || "[]");
 
-//   const addToFavs = (item) => {
-//     dispatchFavs({ type: "ADDTOFAVS", payload: item.payload });
-//   };
+  //   const show = {
+  //     title: titleArg,
+  //     image: imageArg,
+  //   };
 
-//   return (
-//     <div>
-//       <Heart dispatchFavs={dispatchFavs}></Heart>
-//       <FavouritesCards
-//         products={products}
-//         handleClick={addToFavs}
-//       ></FavouritesCards>
-//     </div>
-//   );
-// };
+  //   showList.push(show);
+  //   localStorage.setItem("showList", JSON.stringify(showList));
+  // }
 
-// export default Favourites;
+  // props.favourites &&
+  //   addNewShow(props.favourites.name, props.favourites.show.image.medium);
 
-// // add state for products and cart, both of which are empty arrays
-import React from "react";
+  // window.localStorage.setItem("user", JSON.stringify(props.favourites));
 
-const Favourites = () => {
-  return <div></div>;
+  return (
+    <>
+      <div>
+        {props.favourites && (
+          <img src={props.favourites.show.image.medium}></img>
+        )}{" "}
+      </div>
+      {/* <img src={props.favourites.show.image.medium}></img> */}
+      {/* <button onClick={handleButtonClick}>Add to Favourites</button> */}
+    </>
+  );
 };
 
 export default Favourites;

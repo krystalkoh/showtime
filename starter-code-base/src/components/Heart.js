@@ -1,15 +1,25 @@
 import { HeartSwitch } from "@anatoliygatt/heart-switch";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./Heart.module.css";
+import ReactContext from "../context/react-context";
 
-const Heart = () => {
-  // const favsArr = [];
+const Heart = (props) => {
+  const reactCtx = useContext(ReactContext);
+
+  const handleButtonClick = () => {
+    reactCtx.setFavourites(props.data);
+  };
+
   const [checked, setChecked] = useState(false);
-  if (checked == true) {
+  if (checked) {
+    handleButtonClick();
     console.log("this is checked and true");
+    // do the give image to the useContext in US
+    //push the item into AN ARARY and then push into useContext
   } else {
     console.log("this is unchecked and false");
   }
+
   return (
     <HeartSwitch
       size="sm"

@@ -49,9 +49,15 @@ const UsTrending = (props) => {
         setShowId(index);
         setShow(true);
       };
+      // const reactCtx = useContext(ReactContext);
+
+      // const handleButtonClick = () => {
+      //   reactCtx.setFavourites(item);
+      // };
 
       const finalUsTrending = usTrendingArr.map((item) => {
-        console.log(item);
+        // console.log(item);
+
         return (
           <div className="indivShow">
             {/* onClick={() => { */}
@@ -61,7 +67,7 @@ const UsTrending = (props) => {
             // }} */}
             {/* <button onClick={handleClick}> */}
             <button>
-              <Heart data={item}></Heart>
+              <Heart data={item}> </Heart>
               {/* //usecontext */}
               <img
                 src={item.show.image.medium}
