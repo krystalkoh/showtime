@@ -23,10 +23,11 @@ function App() {
         <div>
           <SearchBar />
           <div>
-            {/* <Carousel /> */}
+            <br></br>
             {favourites && (
               <>
-                <h1>favourites</h1>
+                <h2 class="text-5xl">Favourites </h2>
+                <br></br>
                 <Favourites />
               </>
             )}

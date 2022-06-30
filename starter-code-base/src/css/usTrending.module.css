@@ -35,7 +35,7 @@ h2 {
 } */
 
 .text {
-  @apply leading-none tracking-wider text-gray-400 bg-opacity-90 w-1.5 font-extrabold text-4xl rotate-90 flex flex-col pb-6;
+  @apply leading-none tracking-wider text-white bg-opacity-90 w-1.5 font-extrabold text-4xl rotate-90 flex flex-col pb-4;
 }
 
 .badgeWrapper {

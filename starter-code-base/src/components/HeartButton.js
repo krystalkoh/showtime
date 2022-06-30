@@ -1,6 +1,6 @@
 import { HeartSwitch } from "@anatoliygatt/heart-switch";
 import React, { useState, useContext } from "react";
-import styles from "./Heart.module.css";
+import styles from "../css/Heart.module.css";
 import ReactContext from "../context/react-context";
 import Heart from "react-heart";
 

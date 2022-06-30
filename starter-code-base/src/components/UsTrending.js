@@ -22,14 +22,10 @@ const UsTrending = (props) => {
       const response = await fetch(
         `https://api.tvmaze.com/schedule?country=US&date=${currentDate}`
       );
-      //   if (response.status !== 200) {
-      //     throw new Error("something went wrong.");
-      //   }
 
       //should try and make it random
       const usTrendingImages = await response.json();
 
-      //this is 61 items
       let filteredArr = usTrendingImages.filter(
         (images) => images.show.image !== null
       );
@@ -41,7 +37,7 @@ const UsTrending = (props) => {
         // return shuffled.slice(0, num);
         return arr.slice(0, num);
       }
-      const usTrendingArr = getMultipleRandom(filteredArr, 10);
+      const usTrendingArr = getMultipleRandom(filteredArr, 5);
       // console.log(usTrendingArr);
 
       // const handleFav = (pic) => {
@@ -73,7 +69,7 @@ const UsTrending = (props) => {
               .toString()
               .match(/^([\d]|[0-1]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [res];
 
-            console.log("timeUnit", timeUnit);
+            // console.log("timeUnit", timeUnit);
             // If the time format is matched, it will break the components into an array
             // ie. ["19:00", "19", ":", "00", undefined]
             if (timeUnit.length > 1) {

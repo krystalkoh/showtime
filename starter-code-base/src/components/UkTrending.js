@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { getCurrentDate } from "./currentDate";
 import ShowInfoModal from "./ShowInfoModal";
 import HeartButton from "./HeartButton";
+import styles from "../css/ukTrending.module.css";
+
+import classNames from "classnames";
+import { AiFillHeart } from "react-icons/ai";
+import { BsChatSquareFill } from "react-icons/bs";
 
 const UkTrending = () => {
   const currentDate = getCurrentDate();
@@ -15,11 +20,7 @@ const UkTrending = () => {
       const response = await fetch(
         `https://api.tvmaze.com/schedule?country=GB&date=${currentDate}`
       );
-      //   if (response.status !== 200) {
-      //     throw new Error("something went wrong.");
-      //   }
 
-      //should try and make it random
       const ukTrendingImages = await response.json();
 
       //this is 61 items
@@ -34,11 +35,11 @@ const UkTrending = () => {
 
       //this is to get random shows from the filteredArr
       function getMultipleRandom(arr, num) {
-        const shuffled = [...arr].sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, num);
+        // const shuffled = [...arr].sort(() => 0.5 - Math.random());
+        return arr.slice(0, num);
       }
 
-      const ukTrendingArr = getMultipleRandom(filteredArr, 8);
+      const ukTrendingArr = getMultipleRandom(filteredArr, 5);
 
       const handleClick = (index) => {
         // console.log(index);
@@ -49,24 +50,66 @@ const UkTrending = () => {
       // console.log(ukTrendingArr);
 
       const finalUkTrending = ukTrendingArr.map((item) => {
+        const militaryToTweleveHourConverter = (time) => {
+          const getTime = time.split(" ");
+
+          const parseTime = getTime.map((res) => {
+            // Check for correct time format and split into components or return non-time units unaltered
+            let timeUnit = res
+              .toString()
+              .match(/^([\d]|[0-1]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [res];
+            // If the time format is matched, it will break the components into an array
+            // ie. ["19:00", "19", ":", "00", undefined]
+            if (timeUnit.length > 1) {
+              // Remove full string match value
+              timeUnit = timeUnit.slice(1);
+              // Set am/pm and assign it to the last index in the array
+              timeUnit[5] = timeUnit[0] < 12 ? "am" : "pm";
+              // Adjust hours by subtracting 12 from anything greater than 12 and replace the value in the hours index
+              timeUnit[0] = timeUnit[0] % 12 || 12;
+            }
+            // return adjusted time or original string
+            return timeUnit.join("");
+          });
+          // Re-assemble the array pieces into a string
+          return parseTime.join(" ");
+        };
+        const airTime = militaryToTweleveHourConverter(item.airtime);
         return (
-          <div className="indivShow">
-            <button>
-              {item && <HeartButton data={item} />}
-              <img
-                src={item.show.image.medium}
-                alt="image not available"
-                key={item.show.id}
-                index={item.show.id}
-                onClick={() => {
-                  handleClick(item.show.id);
-                }}
-                name={item.show.name}
-              ></img>
-            </button>
-            <h6> {item.show.name}</h6>
-            {/* {console.log(item.show.id)} */}
-          </div>
+          <>
+            <div>
+              <main className={styles.section}>
+                <section className={styles.container}>
+                  <div
+                    className={classNames([
+                      styles.wrapper,
+                      styles.wrapperAnime,
+                    ])}
+                  >
+                    <div className={styles.imageWrapper}>
+                      {item && <HeartButton data={item} />}
+                      <h1 className={styles.text}> {airTime}</h1>
+                    </div>
+
+                    <img
+                      className={styles.image}
+                      src={item.show.image.medium}
+                      alt="image not available"
+                      key={item.show.id}
+                      index={item.show.id}
+                      onClick={() => {
+                        handleClick(item.show.id);
+                      }}
+                      name={item.show.name}
+                    ></img>
+
+                    {/* <h6> {item.show.name}</h6> */}
+                    {/* {console.log(item.show.id)} */}
+                  </div>
+                </section>
+              </main>
+            </div>
+          </>
         );
       });
 
@@ -91,7 +134,7 @@ const UkTrending = () => {
       {showId && show && (
         <ShowInfoModal okayClicked={handleModalOkay} showId={showId} />
       )}
-      <div>{movieData}</div>
+      <div class="w-auto">{movieData}</div>
     </>
   );
 };

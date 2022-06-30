@@ -98,7 +98,7 @@ const TopRating = (props) => {
   };
   return (
     <>
-      <h2 class="text-5xl"> Top Rated Shows</h2>
+      <h2 class="text-5xl">Top Rated Shows</h2>
       {showId && show && (
         <ShowInfoModal okayClicked={handleModalOkay} showId={showId} />
       )}

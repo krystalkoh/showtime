@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import Heart from "./HeartButton";
-import styles from "./ShowInfoModal.module.css";
+import styles from "../css/ShowInfoModal.module.css";
 import HeartButton from "./HeartButton";
 
 const ShowInfoModal = (props) => {

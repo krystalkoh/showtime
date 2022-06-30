@@ -13,11 +13,13 @@ const Homepage = () => {
         <TopRating />
       </div>
 
-      <h2 class="text-5xl"> Currently showing in the US </h2>
+      <h2 class="text-5xl"> Currently showing in USA 🇺🇸 </h2>
       <br></br>
       <UsTrending />
       <br></br>
-      <h2> Currently showing in the UK </h2>
+      <br></br>
+      <br></br>
+      <h2 class="text-5xl">Currently showing in UK 🇬🇧 </h2>
       <UkTrending />
     </>
   );

@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+h2 {
+  font-family: "Staatliches", cursive;
+}
 html,
 body {
   padding: 0;
