@@ -11,7 +11,7 @@ h2 {
 } */
 
 .wrapper {
-  @apply bg-gray-800 hover:bg-gray-600 shadow-xl hover:shadow-none cursor-pointer w-60 rounded-3xl flex items-center justify-center;
+  @apply bg-gray-700 hover:bg-gray-800 shadow-xl hover:shadow-none cursor-pointer w-60 rounded-3xl flex items-center justify-center;
 }
 
 .wrapperAnime {
@@ -23,19 +23,19 @@ h2 {
 }
 
 .imageWrapper {
-  @apply h-60 rounded-2xl w-12 relative pl-1;
+  @apply h-60 rounded-2xl w-12 relative;
 }
 
 .image {
   @apply object-cover w-full h-full rounded-md overflow-hidden;
 }
-/* 
+
 .textWrapper {
   @apply pt-10 pb-6 w-full px-4;
-} */
+}
 
 .text {
-  @apply leading-none tracking-wider text-gray-400 bg-opacity-90 w-1.5 font-extrabold text-4xl rotate-90 flex flex-col pb-6;
+  @apply leading-none tracking-wider text-gray-400  w-1.5 font-extrabold text-4xl rotate-90 -top-36 flex flex-col;
 }
 
 .badgeWrapper {
@@ -59,7 +59,7 @@ h2 {
 } */
 
 .section {
-  @apply bg-transparent mx-auto px-4 min-h-min md:h-min w-full m-4;
+  @apply bg-transparent mx-auto px-4 min-h-min md:h-min w-20;
 }
 
 .containerTwo {

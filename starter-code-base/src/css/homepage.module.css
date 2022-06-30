@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h2 {
+  font-family: "Staatliches", cursive;
+}
+div {
+  display: inline-block;
+  position: relative;
+}

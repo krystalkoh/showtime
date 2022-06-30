@@ -7,7 +7,7 @@ import UkTrending from "./components/UkTrending";
 import SearchResults from "./components/SearchResults";
 import ReactContext from "./context/react-context";
 import Favourites from "./components/Favourites";
-import styles from "./index.css";
+import styles from "./styles.css";
 
 function App() {
   // const [hasSearched, setHasSearched] = useState(false);
@@ -20,14 +20,17 @@ function App() {
   return (
     <div>
       <ReactContext.Provider value={{ favourites, setFavourites }}>
-        <div className="container">
+        <div>
           <SearchBar />
-          {favourites && (
-            <>
-              <h1>favourites</h1>
-              <Favourites />
-            </>
-          )}
+          <div>
+            {/* <Carousel /> */}
+            {favourites && (
+              <>
+                <h1>favourites</h1>
+                <Favourites />
+              </>
+            )}
+          </div>
         </div>
       </ReactContext.Provider>
 

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getCurrentDate } from "./currentDate";
 import Heart from "./HeartButton";
-import styles from "../css/usTrending.module.css";
 import ShowInfoModal from "./ShowInfoModal";
 import SearchBar from "./SearchBar";
+import styles from "../css/TopRating.module.css";
 // import HeartButton from "./HeartButton";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+import moreStyles from "../styles.css";
 
 // import Carousel from "react-bootstrap/Carousel";
 
@@ -24,6 +27,7 @@ const TopRating = (props) => {
 
       //should try and make it random
       const trendingImages = await response.json();
+      if (!trendingImages) return <div>Images are not fetched yet!</div>;
 
       console.log(trendingImages);
       //this is 61 items
@@ -42,7 +46,7 @@ const TopRating = (props) => {
         const shuffled = [...arr].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, num);
       }
-      const usTrendingArr = getMultipleRandom(ratingFilteredArr, 3);
+      const usTrendingArr = getMultipleRandom(ratingFilteredArr, 15);
       // console.log(usTrendingArr);
 
       const handleClick = (index) => {
@@ -52,27 +56,25 @@ const TopRating = (props) => {
       };
 
       const finalUsTrending = usTrendingArr.map((item) => {
-        console.log(item);
+        // console.log(item);
 
         return (
-          <div className="indivShow ">
-            <button>
-              {/* //heeartbutton not possible coz of favourites return different key */}
-              {/* {item && <HeartButton data={item} />} */}
-              {/* //usecontext */}
-              <img
-                className="d-block w-100"
-                src={item.image.medium}
-                key={item.id}
-                index={item.id}
-                alt="pic not available"
-                onClick={() => {
-                  handleClick(item.id);
-                }}
-                name={item.name}
-              ></img>
-            </button>
-            <h6>Rating: {item.rating.average}</h6>
+          <div>
+            {/* //heeartbutton not possible coz of favourites return different key */}
+            {/* {item && <HeartButton data={item} />} */}
+            {/* //usecontext */}
+
+            <img
+              src={item.image.medium}
+              key={item.id}
+              index={item.id}
+              alt="pic not available"
+              onClick={() => {
+                handleClick(item.id);
+              }}
+              name={item.name}
+            ></img>
+
             {/* {console.log(item.id)} */}
           </div>
         );
@@ -96,10 +98,15 @@ const TopRating = (props) => {
   };
   return (
     <>
+      <h2 class="text-5xl"> Top Rated Shows</h2>
       {showId && show && (
         <ShowInfoModal okayClicked={handleModalOkay} showId={showId} />
       )}
-      <div>{movieData}</div>
+      <Carousel autoPlay infiniteLoop="true">
+        {movieData}
+      </Carousel>
+
+      {/* <div class="w-screen">{movieData}</div> */}
     </>
   );
 };

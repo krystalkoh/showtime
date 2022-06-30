@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+
 import ReactContext from "../context/react-context";
 
 const Favourites = (props) => {
@@ -13,15 +14,7 @@ const Favourites = (props) => {
 
   return (
     <>
-      <div>
-        {favouritesCtx.favourites.length ? favData : null}
-        {/* {props.favourites && (
-          <img src={props.favourites.show.image.medium}></img>
-        )} */}
-        {/* {props.favourites} */}
-      </div>
-      {/* <img src={props.favourites.show.image.medium}></img> */}
-      {/* <button onClick={handleButtonClick}>Add to Favourites</button> */}
+      <div>{favouritesCtx.favourites.length ? favData : null}</div>
     </>
   );
 };
