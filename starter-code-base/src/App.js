@@ -26,7 +26,7 @@ function App() {
             <br></br>
             {favourites && (
               <>
-                <h2 class="text-5xl">Favourites </h2>
+                <h2 class="text-5xl  ml-3">Favourites </h2>
                 <br></br>
                 <Favourites />
               </>

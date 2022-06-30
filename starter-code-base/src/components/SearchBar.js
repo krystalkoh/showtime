@@ -3,6 +3,7 @@ import SearchResults from "./SearchResults";
 import UkTrending from "./UkTrending";
 import UsTrending from "./UsTrending";
 import Homepage from "./Homepage";
+import styles from "../css/searchBar.module.css";
 
 const SearchBar = (props) => {
   console.log("Searchbar re-renders");
@@ -52,7 +53,7 @@ const SearchBar = (props) => {
 
   return (
     <>
-      <form>
+      <form class="float-right">
         <input
           type="text"
           placeholder="Search for a show"

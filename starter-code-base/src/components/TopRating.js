@@ -4,7 +4,6 @@ import Heart from "./HeartButton";
 import ShowInfoModal from "./ShowInfoModal";
 import SearchBar from "./SearchBar";
 import styles from "../css/TopRating.module.css";
-// import HeartButton from "./HeartButton";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import moreStyles from "../styles.css";
@@ -60,10 +59,6 @@ const TopRating = (props) => {
 
         return (
           <div>
-            {/* //heeartbutton not possible coz of favourites return different key */}
-            {/* {item && <HeartButton data={item} />} */}
-            {/* //usecontext */}
-
             <img
               src={item.image.medium}
               key={item.id}
@@ -98,7 +93,6 @@ const TopRating = (props) => {
   };
   return (
     <>
-      <h2 class="text-5xl">Top Rated Shows</h2>
       {showId && show && (
         <ShowInfoModal okayClicked={handleModalOkay} showId={showId} />
       )}
