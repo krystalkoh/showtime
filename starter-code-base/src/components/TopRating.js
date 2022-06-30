@@ -4,7 +4,8 @@ import Heart from "./HeartButton";
 import styles from "../css/usTrending.module.css";
 import ShowInfoModal from "./ShowInfoModal";
 import SearchBar from "./SearchBar";
-import HeartButton from "./HeartButton";
+// import HeartButton from "./HeartButton";
+
 // import Carousel from "react-bootstrap/Carousel";
 
 const TopRating = (props) => {
@@ -41,7 +42,7 @@ const TopRating = (props) => {
         const shuffled = [...arr].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, num);
       }
-      const usTrendingArr = getMultipleRandom(ratingFilteredArr, 1);
+      const usTrendingArr = getMultipleRandom(ratingFilteredArr, 3);
       // console.log(usTrendingArr);
 
       const handleClick = (index) => {
@@ -51,18 +52,20 @@ const TopRating = (props) => {
       };
 
       const finalUsTrending = usTrendingArr.map((item) => {
-        // console.log(item);
+        console.log(item);
 
         return (
-          <div className="indivShow">
+          <div className="indivShow ">
             <button>
-              {item && <HeartButton data={item} />}
+              {/* //heeartbutton not possible coz of favourites return different key */}
+              {/* {item && <HeartButton data={item} />} */}
               {/* //usecontext */}
               <img
+                className="d-block w-100"
                 src={item.image.medium}
-                alt="image not available"
                 key={item.id}
                 index={item.id}
+                alt="pic not available"
                 onClick={() => {
                   handleClick(item.id);
                 }}
@@ -70,10 +73,11 @@ const TopRating = (props) => {
               ></img>
             </button>
             <h6>Rating: {item.rating.average}</h6>
-            {/* {console.log(item.show.id)} */}
+            {/* {console.log(item.id)} */}
           </div>
         );
       });
+      // console.log(finalUsTrending);
 
       setMovieData(finalUsTrending);
     } catch (error) {
