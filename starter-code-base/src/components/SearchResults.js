@@ -2,6 +2,9 @@ import React from "react";
 
 const Results = (props) => {
   const results = props.data.map((item) => {
+    // const htmlString = props.summary;
+    // const plainString = htmlString.replace(/<[^>]+>/g, "");
+    // console.log(plainString);
     return (
       <div key={item.id}>
         {/* <h4>results show here:</h4> */}
@@ -16,7 +19,7 @@ const Results = (props) => {
             ? "Rating not available"
             : item.show.rating.average}
         </h6>{" "}
-        <h6>{item.show.language}</h6> <p>{item.show.summary}</p>{" "}
+        <h6>{item.show.language}</h6> <p>{item.show.summary}</p>
         {item.show.rating.average == null ? (
           "Image not available"
         ) : (
