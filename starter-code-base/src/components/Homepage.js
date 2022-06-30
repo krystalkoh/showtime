@@ -8,8 +8,8 @@ import styles from "../css/homepage.module.css";
 const Homepage = () => {
   return (
     <>
-      <h3 class="text-7xl text-red-500 text-center">SHOWTIME</h3>
-      {/* <h2 class="text-5xl ml-3">Top Rated Shows</h2> */}
+      <h3 class="text-7xl text-red-500 text-center ">SHOWTIME </h3>
+      <h2 class="text-5xl ml-3">Top Rated Shows 🍿</h2>
       <br></br>
       <div className="2xl:container 2xl:mx-auto 2xl:px-0 py-3 px-10">
         <TopRating />

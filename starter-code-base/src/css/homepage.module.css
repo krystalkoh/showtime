@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+h1 {
+  font-family: "Saira Stencil One", cursive;
+  opacity: 0.9;
+}
 h2 {
   font-family: "Staatliches", cursive;
 }
 h3 {
-  font-family: "Bungee Shade", cursive;
+  font-family: "Oswald", sans-serif;
 }
 div {
   display: inline-block;

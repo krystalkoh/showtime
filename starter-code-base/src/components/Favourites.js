@@ -17,7 +17,14 @@ const Favourites = (props) => {
 
   return (
     <>
-      <div>{favouritesCtx.favourites.length ? favData : null}</div>
+      <div>
+        {favouritesCtx.favourites.length ? (
+          <>
+            <h2 class="text-5xl  ml-3">Favourites ❤️</h2> <br></br>
+            {favData}{" "}
+          </>
+        ) : null}
+      </div>
     </>
   );
 };

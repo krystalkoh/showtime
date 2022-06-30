@@ -53,30 +53,31 @@ const SearchBar = (props) => {
 
   return (
     <>
-      <form class="float-right">
-        <input
-          type="text"
-          placeholder="Search for a show"
-          onChange={handleInputChange}
-        />
-        {/* <Button onSubmit={handleSubmit}></Button>
-      <input value={input} type="text" placeholder="Enter a Movie Title..." />
-      <button type="submit" value="Submit"> */}
-        <button
-          type="submit"
-          onClick={handleSubmit}
-          // onSubmit={props.handleClick}
-        >
-          Search
-        </button>
+      <form>
+        <label class="relative block">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+            <input
+              class="placeholder:italic placeholder:text-slate-300 block bg-zinc-500 text-zinc-300 w-full border border-zinc-200 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-zinc-200 focus:ring-zinc-200 focus:ring-1 sm:text-sm"
+              name="search"
+              type="text"
+              placeholder="Search for a show"
+              onChange={handleInputChange}
+            />
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              class="  hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-full lg:text-lg pl-3 pr-3 m-2 italic"
+            >
+              Search
+            </button>
+          </span>
+        </label>
       </form>
 
       {search && data ? (
         <SearchResults data={data} onClick={handleClick} />
       ) : (
-        <>
-          <Homepage />
-        </>
+        <Homepage />
       )}
     </>
   );

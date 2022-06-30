@@ -17,6 +17,7 @@ const UsTrending = (props) => {
   const [showId, setShowId] = useState("");
   const [show, setShow] = useState(false);
 
+  console.log(currentDate);
   const fetchPost = async () => {
     try {
       const response = await fetch(
