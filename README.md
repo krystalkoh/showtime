@@ -1,9 +1,8 @@
-### Showtime!!
+### Showtime!
 
-Aim of the app:
-Need more information about a tv show you're interested in? You've tuned in to the right app!
+Need more information about a tv show you're interested in? You've _tuned in_ to the right app!
 
-![Landing Page](//showtime/screenshots/Screenshot%202022-07-01%20at%2011.29.53%20AM.png)
+![Landing Page](/showtime/screenshots/homepage1.png)
 
 Explore the map with Hermione as your main character. Use up, down, left, right as your keys for movement.
 ![Game](/assets/screenshots/ss1.jpeg)
