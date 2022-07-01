@@ -48,9 +48,11 @@ const Results = (props) => {
 
   return (
     <div>
-      <button type="submit" value="Submit" onClick={props.onClick}>
-        Back to Search
-      </button>
+      <div class="float-right right-9 hover:bg-rose-400 active:bg-rose-400 focus:outline-none focus:ring focus:ring-rose-700 rounded-full lg:text-lg pl-3 pr-3">
+        <button type="submit" value="Submit" onClick={props.onClick}>
+          Back to Homepage
+        </button>
+      </div>
       <br></br>
       <br></br>
       <div id="results" class="grid grid-cols-3 gap-4 mx-3 ">
