@@ -22,11 +22,13 @@ function App() {
       <ReactContext.Provider value={{ favourites, setFavourites }}>
         <div>
           <SearchBar />
+
           <div>
             <br></br>
+
             {favourites && (
               <>
-                <br></br>
+                {/* <br></br> */}
                 <Favourites />
               </>
             )}

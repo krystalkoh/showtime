@@ -37,8 +37,6 @@ const SearchBar = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // setSearch(input);
-    // fetchPost(movieSrc);
     setSearch(true);
   };
 
@@ -53,7 +51,7 @@ const SearchBar = (props) => {
 
   return (
     <>
-      <form>
+      <form class="pt-4">
         <label class="relative block">
           <span class="absolute inset-y-0 left-0 flex items-center pl-2">
             <input

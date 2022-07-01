@@ -40,15 +40,19 @@
 
 p {
   font-family: "Archivo", sans-serif;
+
+  padding: 0 0 0 8px;
 }
 h4 {
   font-family: "Archivo", sans-serif;
   font-weight: bolder;
 }
+
 .actions {
-  padding: 2rem;
+  padding: 3rem;
   display: flex;
   justify-content: flex-end;
+  margin: 0 562px 0 0;
 }
 
 @media (min-width: 600px) {
