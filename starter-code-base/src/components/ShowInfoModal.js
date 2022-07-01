@@ -39,9 +39,11 @@ const ShowInfoModal = (props) => {
             className={styles.header}
             class="grid grid-rows-3 grid-flow-col"
           >
-            <img class="w-60 row-span-3 ml-5 mt-5" src={props.image}></img>
-            <h2 class="col-span-2 text-5xl mt-20 pl-2 pr-2 ">{props.name}</h2>
-            <h3 class=" row-span-2 col-span-2 ">
+            <img class="w-60 row-span-3 ml-5 mt-5 mb-5" src={props.image}></img>
+            <h2 class="col-span-2 text-4xl py-10 pl-2 pr-2 ml-5">
+              {props.name}
+            </h2>
+            <h3 class=" row-span-2 col-span-2 ml-5">
               <span class="lg pl-2"> Premiered on {data.premiered}</span>
 
               <a class="group pl-2" href={props.officialSite}>
