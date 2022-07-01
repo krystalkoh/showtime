@@ -4,7 +4,7 @@ import styles from "../css/searchResults.module.css";
 const Results = (props) => {
   const results = props.data.map((item) => {
     return (
-      <div class="pb-3 border border-violet-300 rounded-lg p-5">
+      <div class="pb-3 border border-violet-300 rounded-lg p-5 ">
         <div key={item.id}>
           <h3 class="text-2xl pb-2">{item.show.name}</h3>
 
@@ -12,7 +12,11 @@ const Results = (props) => {
             {item.show.image.medium == null ? (
               "Image not available"
             ) : (
-              <img src={item.show.image.medium} alt="" key={item.show.id} />
+              <img
+                src={item.show.image.medium}
+                alt="Poster of show"
+                key={item.show.id}
+              />
             )}
 
             <div class="pt-20 pl-7">
