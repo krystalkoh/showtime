@@ -39,9 +39,9 @@ const ShowInfoModal = (props) => {
             className={styles.header}
             class="grid grid-rows-3 grid-flow-col"
           >
-            <img class="w-60 row-span-3" src={props.image}></img>
-            <h2 class="col-span-2 text-3xl mt-20 pl-2 pr-2">{props.name}</h2>
-            <h3 class=" row-span-2 col-span-2">
+            <img class="w-60 row-span-3 ml-5 mt-5" src={props.image}></img>
+            <h2 class="col-span-2 text-5xl mt-20 pl-2 pr-2 ">{props.name}</h2>
+            <h3 class=" row-span-2 col-span-2 ">
               <span class="lg pl-2"> Premiered on {data.premiered}</span>
 
               <a class="group pl-2" href={props.officialSite}>
@@ -59,12 +59,12 @@ const ShowInfoModal = (props) => {
           </header>
           <div className={styles.content}></div>
           <h4 class="text-xl italic font-bold pl-2">Summary</h4>
-          <p>{plainString}</p>
+          <p class="mb-6">{plainString}</p>
         </div>
 
         <footer className={styles.actions}>
           <button
-            class=" hover:bg-rose-400 active:bg-rose-400 focus:outline-none focus:ring focus:ring-rose-700 rounded-full lg:text-lg pl-3 pr-3 m-2 italic"
+            class=" hover:bg-rose-400 active:bg-rose-400 focus:outline-none focus:ring focus:ring-rose-700 rounded-full lg:text-lg pl-3 pr-3 mb-4 italic"
             onClick={props.okayClicked}
           >
             Back To Homepage

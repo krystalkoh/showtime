@@ -36,7 +36,7 @@ const UsTrending = (props) => {
       function getMultipleRandom(arr, num) {
         const shuffled = [...arr].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, num);
-        return arr.slice(0, num);
+        // return arr.slice(0, num);
       }
       const usTrendingArr = getMultipleRandom(filteredArr, 5);
       // console.log(usTrendingArr);

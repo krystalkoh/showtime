@@ -35,8 +35,8 @@ const UkTrending = () => {
 
       //this is to get random shows from the filteredArr
       function getMultipleRandom(arr, num) {
-        // const shuffled = [...arr].sort(() => 0.5 - Math.random());
-        return arr.slice(0, num);
+        const shuffled = [...arr].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, num);
       }
 
       const ukTrendingArr = getMultipleRandom(filteredArr, 5);
