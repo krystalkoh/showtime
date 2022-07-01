@@ -47,8 +47,10 @@ const SearchBar = (props) => {
   useEffect(() => {
     // console.log(`component is mounted or rendered`);
     fetchPost(movieSrc);
+    setInput("");
   }, [search]);
 
+  const form = () => {};
   return (
     <>
       <form class="pt-4">
@@ -60,6 +62,7 @@ const SearchBar = (props) => {
               type="text"
               placeholder="Search for a show"
               onChange={handleInputChange}
+              value={input}
             />
             <button
               type="submit"

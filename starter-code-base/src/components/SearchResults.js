@@ -1,37 +1,45 @@
 import React from "react";
+import styles from "../css/searchResults.module.css";
 
 const Results = (props) => {
   const results = props.data.map((item) => {
     return (
-      <div class="pb-3 border border-indigo-600 p-5">
+      <div class="pb-3 border border-violet-300 rounded-lg p-5">
         <div key={item.id}>
-          {/* <h4>results show here:</h4> */}
-          {/* <h6>{item.show.id}</h6>
-        <h6>{item.show.url}</h6> */}
           <h3 class="text-2xl pb-2">{item.show.name}</h3>
-          {item.show.image.medium == null ? (
-            "Image not available"
-          ) : (
-            <img src={item.show.image.medium} alt="" key={item.show.id} />
-          )}
-          <h6>
-            {item.show.rating.average == null
-              ? "Rating not available"
-              : `Rating: ${item.show.rating.average}`}
-          </h6>
-          <h6>{item.show.language}</h6>
-          {/* //genre is an array  */}
-          {/* <h6>{item.show.genre}</h6> */}
-          <a class="group " href={item.show.officialSite}></a>
-          <h6>
-            {" "}
-            {item.show.summary == null
-              ? "Summary not available"
-              : item.show.summary}
-          </h6>
 
-          <h6 class="group-hover:text-rose-400 ease-in-out mx-2 my-2">
-            Link to Official Site
+          <div class="grid grid-cols-2 gap-2 ">
+            {item.show.image.medium == null ? (
+              "Image not available"
+            ) : (
+              <img src={item.show.image.medium} alt="" key={item.show.id} />
+            )}
+
+            <div class="pt-20 pl-7">
+              <h6>
+                {item.show.rating.average == null
+                  ? "Rating not available"
+                  : `Rating: ${item.show.rating.average}`}
+              </h6>
+              <h6>Language: {item.show.language}</h6>
+
+              <a class="group " href={item.show.officialSite}>
+                <div class="group-hover:text-rose-400 ease-in-out my-2  ">
+                  Link to Official Site
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <h6 class="pl-0 italic pt-3">
+            {" "}
+            {item.show.summary == null ? (
+              <p>Summary not available</p>
+            ) : (
+              <div
+                dangerouslySetInnerHTML={{ __html: item.show.summary }}
+              ></div>
+            )}
           </h6>
         </div>
       </div>
