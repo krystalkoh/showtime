@@ -39,24 +39,12 @@ const UsTrending = (props) => {
         // return arr.slice(0, num);
       }
       const usTrendingArr = getMultipleRandom(filteredArr, 5);
-      // console.log(usTrendingArr);
 
-      // const handleFav = (pic) => {
-      //   setFav((prevState) => [...prevState, pic]);
-      // };
-      // const handleShowInfo = (id) => {
-      //   return <ShowInfo key={showId}></ShowInfo>;
-      // };
       const handleClick = (index) => {
         // console.log(index);
         setShowId(index);
         setShow(true);
       };
-      // const reactCtx = useContext(ReactContext);
-
-      // const handleButtonClick = () => {
-      //   reactCtx.setFavourites(item);
-      // };
 
       const finalUsTrending = usTrendingArr.map((item) => {
         // console.log(item);

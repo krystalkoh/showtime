@@ -29,15 +29,6 @@ const HeartButton = (props) => {
     }
   };
 
-  // if (active) {
-  //   handleButtonClick();
-  //   console.log("this is checked and true");
-  //   // do the give image to the useContext in US
-  //   //push the item into AN ARARY and then push into useContext
-  // } else {
-  //   console.log("this is unchecked and false");
-  // }
-
   return (
     <div style={{ width: "2rem" }}>
       <Heart isActive={active} onClick={() => handleButtonClick()} />

@@ -13,14 +13,7 @@ const RandomShows = () => {
       }
 
       const movieData = await response.json();
-      //   console.log(data);
-      //   let randomResults = movieData.map((item) => {
-      //     return (
-      //       <div>
-      //         <img src={item.resolutions.original.url} key={item.id}></img>
-      //       </div>
-      //     );
-      //   });
+
       const newArr = [];
       for (let i = 0; i <= 9; i++) {
         const newShow = movieData[i].resolutions.original.url;

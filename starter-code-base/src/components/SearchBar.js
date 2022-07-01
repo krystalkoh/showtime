@@ -24,7 +24,6 @@ const SearchBar = (props) => {
       }
 
       const searchData = await response.json();
-      // console.log(searchData);
       setData(searchData);
     } catch (error) {
       setError(error.message);
@@ -45,12 +44,10 @@ const SearchBar = (props) => {
   };
 
   useEffect(() => {
-    // console.log(`component is mounted or rendered`);
     fetchPost(movieSrc);
     setInput("");
   }, [search]);
 
-  const form = () => {};
   return (
     <>
       <form class="pt-4">
@@ -85,5 +82,3 @@ const SearchBar = (props) => {
 };
 
 export default SearchBar;
-
-//useeffect is happening
