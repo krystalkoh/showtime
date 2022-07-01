@@ -26,6 +26,12 @@ Problem: Focusing on the design in mind first rather than planning out the data 
 
 Lesson learnt: Having the wireframe in mind is fine, but need to ensure routes + basic data structure done first before actually coding. 
 
+### Using Conditional Rendering to ensure data is loaded
+Problem: Unable to read data because components were rendered first before data was loaded
+Solution: Use conditional rendering to ensure API has been called and data has been loaded before components are rendered
+
+![file](/starter-code-base/screenshots/conditional.png)
+
 ### Encountering HTML in the summary data pulled from API
 Problem: HTML tags in the data of the summary 
 ![prior](/starter-code-base/screenshots/priorToDanger.png)
