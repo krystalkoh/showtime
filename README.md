@@ -2,7 +2,7 @@
 
 Need more information about a tv show you're interested in? You've _tuned in_ to the right app!
 
-![Landing Page](/showtime/starter-code-base/screenshots/homepage1.png)
+![Landing Page](/starter-code-base/screenshots/homepage1.png)
 
 Explore the map with Hermione as your main character. Use up, down, left, right as your keys for movement.
 ![Game](/assets/screenshots/ss1.jpeg)
