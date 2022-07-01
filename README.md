@@ -31,6 +31,6 @@ Problem: HTML tags in the data of the summary
 
 Solution: use DangerouselySetInnerHTML in order to convert tags to text 
 
-![danger](/starter-code-base/screenshots/dangerouselySet.png)
+![danger](/starter-code-base/screenshots/dangerouslySet.png)
 
 ![after](/starter-code-base/screenshots/afterDanger.png)
