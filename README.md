@@ -21,9 +21,10 @@ Solution: Filtering out unavailable data first
 (Second part of the code was to randomise the shows shown on screen)
 
 ### Not planning out the file structure accurately 
-Problem: Focusing on the design in mind first rather than planning out the data structure accurately and sticking to it 
-Lesson learnt: Having the wireframe in mind is fine, but need to ensure routes + basic data structure done first before actually coding. 
+Problem: Focusing on the design in mind first rather than planning out the data structure accurately and sticking to it. The following was my final datastructure: 
 ![file](/starter-code-base/screenshots/wireframe.png)
+
+Lesson learnt: Having the wireframe in mind is fine, but need to ensure routes + basic data structure done first before actually coding. 
 
 ### Encountering HTML in the summary data pulled from API
 Problem: HTML tags in the data of the summary 
