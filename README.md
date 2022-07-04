@@ -1,7 +1,7 @@
 # Showtime!
 
 Need more information about a tv show you're interested in? You've _tuned in_ to the right app!
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c1c772ba-b900-4807-8ad8-2869f9065c6a/deploy-status)](https://app.netlify.com/sites/itsshowtime/deploys)
+Deployed app: https://itsshowtime.netlify.app
 
 ![Landing Page](/starter-code-base/screenshots/homepage1.png)
 ![Landing Page2](/starter-code-base/screenshots/homepage2.png)
