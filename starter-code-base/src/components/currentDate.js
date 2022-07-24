@@ -4,5 +4,5 @@ export function getCurrentDate(separator = "") {
   let month = newDate.getMonth() + 1;
   let year = newDate.getFullYear();
 
-  return `${year}-${month < 10 ? `0${month}` : `${month}`}-0${date}`;
+  return `${year}-${month < 10 ? `0${month}` : `${month}`}-${date}`;
 }
